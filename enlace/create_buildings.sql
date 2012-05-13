@@ -1,0 +1,28 @@
+drop table vacant_311;
+CREATE TABLE vacant_311 (
+	request_number VARCHAR(11) NOT NULL, 
+	date_received timestamp NOT NULL, 
+	location_on_lot VARCHAR(6), 
+	dangerous_or_hazardous VARCHAR(32), 
+	dangerous INTEGER NOT NULL, 
+	open_or_boarded VARCHAR(7), 
+	open INTEGER NOT NULL, 
+	entry_point VARCHAR(264), 
+	vacant_or_occupied VARCHAR(8), 
+	vacant_flag INTEGER NOT NULL, 
+	vacant_due_to_fire INTEGER, 
+	fire_flag INTEGER NOT NULL, 
+	people_using_property INTEGER, 
+	in_use_flag INTEGER NOT NULL, 
+	address_street_num INTEGER NOT NULL, 
+	address_street_dir VARCHAR(4), 
+	address_street_name VARCHAR(24) NOT NULL, 
+	address_street_suffix VARCHAR(4), 
+	zip_code INTEGER, 
+	full_address VARCHAR(52) NOT NULL, 
+	x_coordinate FLOAT, 
+	y_coordinate FLOAT, 
+	latitude FLOAT, 
+	longitude FLOAT, 
+	location VARCHAR(37) NOT NULL
+);
