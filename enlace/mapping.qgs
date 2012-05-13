@@ -2,28 +2,43 @@
 <qgis projectname="" version="1.7.4-Wroclaw">
     <title></title>
     <mapcanvas>
-        <units>degrees</units>
+        <units>meters</units>
         <extent>
-            <xmin>1144404.563293</xmin>
-            <ymin>1878619.896627</ymin>
-            <xmax>1161574.331576</xmax>
-            <ymax>1893918.078794</ymax>
+            <xmin>-9768804.961597</xmin>
+            <ymin>5134116.435338</ymin>
+            <xmax>-9758849.444127</xmax>
+            <ymax>5141294.334798</ymax>
         </extent>
-        <projections>0</projections>
+        <projections>1</projections>
         <destinationsrs>
             <spatialrefsys>
-                <proj4>+proj=longlat +datum=WGS84 +no_defs</proj4>
-                <srsid>3452</srsid>
-                <srid>4326</srid>
-                <authid>EPSG:4326</authid>
-                <description>WGS 84</description>
-                <projectionacronym>longlat</projectionacronym>
+                <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs</proj4>
+                <srsid>3644</srsid>
+                <srid>900913</srid>
+                <authid>EPSG:900913</authid>
+                <description>Google Mercator</description>
+                <projectionacronym>merc</projectionacronym>
                 <ellipsoidacronym>WGS84</ellipsoidacronym>
-                <geographicflag>true</geographicflag>
+                <geographicflag>false</geographicflag>
             </spatialrefsys>
         </destinationsrs>
     </mapcanvas>
     <legend>
+        <legendlayer open="true" checked="Qt::Checked" name="google-roadmap-z19-3" showFeatureCount="0">
+            <filegroup open="true" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="google_roadmap_z19_320120512202431542" visible="1"/>
+            </filegroup>
+        </legendlayer>
+        <legendlayer open="true" checked="Qt::Unchecked" name="school_grounds" showFeatureCount="0">
+            <filegroup open="true" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="school_grounds20120512192959813" visible="0"/>
+            </filegroup>
+        </legendlayer>
+        <legendlayer open="true" checked="Qt::Unchecked" name="nearschool" showFeatureCount="0">
+            <filegroup open="true" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="nearschool20120512192842006" visible="0"/>
+            </filegroup>
+        </legendlayer>
         <legendlayer open="true" checked="Qt::Checked" name="vacant_311" showFeatureCount="0">
             <filegroup open="true" hidden="false">
                 <legendlayerfile isInOverview="0" layerid="vacant_31120120512184051902" visible="1"/>
@@ -44,18 +59,42 @@
                 <legendlayerfile isInOverview="0" layerid="crimes20120512143509475" visible="1"/>
             </filegroup>
         </legendlayer>
+        <legendlayer open="true" checked="Qt::Checked" name="Google Streets" showFeatureCount="0">
+            <filegroup open="true" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="OpenLayers_plugin_layer20120512202447212" visible="1"/>
+            </filegroup>
+        </legendlayer>
         <legendlayer open="true" checked="Qt::Checked" name="neighborhoods" showFeatureCount="0">
             <filegroup open="true" hidden="false">
                 <legendlayerfile isInOverview="0" layerid="neighborhoods20120512113403082" visible="1"/>
             </filegroup>
         </legendlayer>
-        <legendlayer open="true" checked="Qt::Checked" name="commareas" showFeatureCount="0">
+        <legendlayer open="true" checked="Qt::Unchecked" name="commareas" showFeatureCount="0">
             <filegroup open="true" hidden="false">
-                <legendlayerfile isInOverview="0" layerid="commareas20120512112725721" visible="1"/>
+                <legendlayerfile isInOverview="0" layerid="commareas20120512112725721" visible="0"/>
             </filegroup>
         </legendlayer>
     </legend>
-    <projectlayers layercount="6">
+    <projectlayers layercount="10">
+        <maplayer minimumScale="0" maximumScale="1e+08" ol_layer_type="1" type="plugin" hasScaleBasedVisibilityFlag="0" name="openlayers">
+            <id>OpenLayers_plugin_layer20120512202447212</id>
+            <datasource></datasource>
+            <layername>Google Streets</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs</proj4>
+                    <srsid>3644</srsid>
+                    <srid>900913</srid>
+                    <authid>EPSG:900913</authid>
+                    <description>Google Mercator</description>
+                    <projectionacronym>merc</projectionacronym>
+                    <ellipsoidacronym>WGS84</ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <transparencyLevelInt>255</transparencyLevelInt>
+            <customproperties/>
+        </maplayer>
         <maplayer minimumScale="0" maximumScale="1e+08" geometry="Polygon" type="vector" hasScaleBasedVisibilityFlag="0">
             <id>buffered20120512155203447</id>
             <datasource>/tmp/buffered.shp</datasource>
@@ -281,7 +320,7 @@
         </maplayer>
         <maplayer minimumScale="0" maximumScale="1e+08" geometry="Point" type="vector" hasScaleBasedVisibilityFlag="0">
             <id>crimes20120512143509475</id>
-            <datasource>dbname='datakind' sslmode=disable key='ctid' table="crimes" (the_geom) sql=neigh_number = '110'</datasource>
+            <datasource>dbname='datakind' sslmode=disable key='ctid' table="crimes" (the_geom) sql="neigh_number" = 110 and primary_type in ('ARSON','BURGLARY','CRIMINAL DAMAGE','CRIMINAL TRESPASS')</datasource>
             <layername>crimes</layername>
             <srs>
                 <spatialrefsys>
@@ -340,6 +379,226 @@
             <editform>.</editform>
             <editforminit></editforminit>
             <annotationform>.</annotationform>
+            <attributeactions/>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="1e+08" type="raster" hasScaleBasedVisibilityFlag="0">
+            <id>google_roadmap_z19_320120512202431542</id>
+            <datasource>/var/folders/Kp/KpjoZB5g2ReNTU+F720aS++++TM/-Tmp-/google_layers/google-roadmap-z19-3-12052012_1847011336866421.png</datasource>
+            <layername>google-roadmap-z19-3</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs</proj4>
+                    <srsid>1743</srsid>
+                    <srid>3785</srid>
+                    <authid>EPSG:3785</authid>
+                    <description>Popular Visualisation CRS / Mercator</description>
+                    <projectionacronym>merc</projectionacronym>
+                    <ellipsoidacronym></ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <transparencyLevelInt>255</transparencyLevelInt>
+            <customproperties/>
+            <provider>gdal</provider>
+            <rasterproperties>
+                <mDrawingStyle>PalettedColor</mDrawingStyle>
+                <mColorShadingAlgorithm>ColorRampShader</mColorShadingAlgorithm>
+                <mInvertColor boolean="false"/>
+                <mRedBandName>Not Set</mRedBandName>
+                <mGreenBandName>Not Set</mGreenBandName>
+                <mBlueBandName>Not Set</mBlueBandName>
+                <mGrayBandName>Band 1</mGrayBandName>
+                <mStandardDeviations>0</mStandardDeviations>
+                <mUserDefinedRGBMinimumMaximum boolean="false"/>
+                <mRGBMinimumMaximumEstimated boolean="true"/>
+                <mUserDefinedGrayMinimumMaximum boolean="false"/>
+                <mGrayMinimumMaximumEstimated boolean="true"/>
+                <mContrastEnhancementAlgorithm>NoEnhancement</mContrastEnhancementAlgorithm>
+                <contrastEnhancementMinMaxValues>
+                    <minMaxEntry>
+                        <min>0</min>
+                        <max>255</max>
+                    </minMaxEntry>
+                </contrastEnhancementMinMaxValues>
+                <mNoDataValue mValidNoDataValue="true">-32768.000000</mNoDataValue>
+                <singleValuePixelList>
+                    <pixelListEntry pixelValue="-32768.000000" percentTransparent="100"/>
+                </singleValuePixelList>
+                <threeValuePixelList>
+                    <pixelListEntry red="-32768.000000" blue="-32768.000000" green="-32768.000000" percentTransparent="100"/>
+                </threeValuePixelList>
+                <customColorRamp>
+                    <colorRampType>INTERPOLATED</colorRampType>
+                    <colorRampEntry red="74" blue="93" value="0.000000" green="82" label="0"/>
+                    <colorRampEntry red="78" blue="105" value="1.000000" green="91" label="1"/>
+                    <colorRampEntry red="85" blue="110" value="2.000000" green="97" label="2"/>
+                    <colorRampEntry red="83" blue="112" value="3.000000" green="97" label="3"/>
+                    <colorRampEntry red="86" blue="115" value="4.000000" green="100" label="4"/>
+                    <colorRampEntry red="88" blue="118" value="5.000000" green="102" label="5"/>
+                    <colorRampEntry red="96" blue="128" value="6.000000" green="111" label="6"/>
+                    <colorRampEntry red="97" blue="130" value="7.000000" green="112" label="7"/>
+                    <colorRampEntry red="98" blue="131" value="8.000000" green="113" label="8"/>
+                    <colorRampEntry red="101" blue="131" value="9.000000" green="115" label="9"/>
+                    <colorRampEntry red="103" blue="130" value="10.000000" green="115" label="10"/>
+                    <colorRampEntry red="100" blue="133" value="11.000000" green="115" label="11"/>
+                    <colorRampEntry red="100" blue="134" value="12.000000" green="116" label="12"/>
+                    <colorRampEntry red="102" blue="136" value="13.000000" green="118" label="13"/>
+                    <colorRampEntry red="106" blue="142" value="14.000000" green="123" label="14"/>
+                    <colorRampEntry red="109" blue="136" value="15.000000" green="121" label="15"/>
+                    <colorRampEntry red="108" blue="143" value="16.000000" green="124" label="16"/>
+                    <colorRampEntry red="115" blue="146" value="17.000000" green="130" label="17"/>
+                    <colorRampEntry red="119" blue="145" value="18.000000" green="131" label="18"/>
+                    <colorRampEntry red="114" blue="153" value="19.000000" green="132" label="19"/>
+                    <colorRampEntry red="115" blue="154" value="20.000000" green="133" label="20"/>
+                    <colorRampEntry red="116" blue="155" value="21.000000" green="134" label="21"/>
+                    <colorRampEntry red="117" blue="157" value="22.000000" green="136" label="22"/>
+                    <colorRampEntry red="118" blue="159" value="23.000000" green="137" label="23"/>
+                    <colorRampEntry red="119" blue="159" value="24.000000" green="138" label="24"/>
+                    <colorRampEntry red="123" blue="145" value="25.000000" green="133" label="25"/>
+                    <colorRampEntry red="123" blue="146" value="26.000000" green="133" label="26"/>
+                    <colorRampEntry red="123" blue="155" value="27.000000" green="138" label="27"/>
+                    <colorRampEntry red="122" blue="158" value="28.000000" green="139" label="28"/>
+                    <colorRampEntry red="120" blue="161" value="29.000000" green="139" label="29"/>
+                    <colorRampEntry red="123" blue="165" value="30.000000" green="142" label="30"/>
+                    <colorRampEntry red="124" blue="166" value="31.000000" green="144" label="31"/>
+                    <colorRampEntry red="126" blue="168" value="32.000000" green="145" label="32"/>
+                    <colorRampEntry red="127" blue="171" value="33.000000" green="148" label="33"/>
+                    <colorRampEntry red="129" blue="152" value="34.000000" green="139" label="34"/>
+                    <colorRampEntry red="130" blue="166" value="35.000000" green="147" label="35"/>
+                    <colorRampEntry red="130" blue="174" value="36.000000" green="151" label="36"/>
+                    <colorRampEntry red="131" blue="176" value="37.000000" green="152" label="37"/>
+                    <colorRampEntry red="132" blue="177" value="38.000000" green="153" label="38"/>
+                    <colorRampEntry red="133" blue="178" value="39.000000" green="154" label="39"/>
+                    <colorRampEntry red="134" blue="178" value="40.000000" green="154" label="40"/>
+                    <colorRampEntry red="135" blue="181" value="41.000000" green="157" label="41"/>
+                    <colorRampEntry red="140" blue="179" value="42.000000" green="158" label="42"/>
+                    <colorRampEntry red="143" blue="182" value="43.000000" green="161" label="43"/>
+                    <colorRampEntry red="138" blue="185" value="44.000000" green="160" label="44"/>
+                    <colorRampEntry red="140" blue="187" value="45.000000" green="162" label="45"/>
+                    <colorRampEntry red="140" blue="188" value="46.000000" green="163" label="46"/>
+                    <colorRampEntry red="143" blue="188" value="47.000000" green="164" label="47"/>
+                    <colorRampEntry red="142" blue="190" value="48.000000" green="164" label="48"/>
+                    <colorRampEntry red="143" blue="191" value="49.000000" green="166" label="49"/>
+                    <colorRampEntry red="158" blue="186" value="50.000000" green="171" label="50"/>
+                    <colorRampEntry red="160" blue="189" value="51.000000" green="174" label="51"/>
+                    <colorRampEntry red="144" blue="193" value="52.000000" green="167" label="52"/>
+                    <colorRampEntry red="145" blue="194" value="53.000000" green="168" label="53"/>
+                    <colorRampEntry red="146" blue="196" value="54.000000" green="169" label="54"/>
+                    <colorRampEntry red="148" blue="198" value="55.000000" green="171" label="55"/>
+                    <colorRampEntry red="148" blue="198" value="56.000000" green="172" label="56"/>
+                    <colorRampEntry red="151" blue="203" value="57.000000" green="175" label="57"/>
+                    <colorRampEntry red="152" blue="204" value="58.000000" green="176" label="58"/>
+                    <colorRampEntry red="155" blue="205" value="59.000000" green="178" label="59"/>
+                    <colorRampEntry red="154" blue="206" value="60.000000" green="178" label="60"/>
+                    <colorRampEntry red="155" blue="208" value="61.000000" green="180" label="61"/>
+                    <colorRampEntry red="157" blue="210" value="62.000000" green="181" label="62"/>
+                    <colorRampEntry red="157" blue="211" value="63.000000" green="182" label="63"/>
+                    <colorRampEntry red="159" blue="212" value="64.000000" green="184" label="64"/>
+                    <colorRampEntry red="168" blue="200" value="65.000000" green="183" label="65"/>
+                    <colorRampEntry red="171" blue="205" value="66.000000" green="187" label="66"/>
+                    <colorRampEntry red="173" blue="207" value="67.000000" green="189" label="67"/>
+                    <colorRampEntry red="160" blue="214" value="68.000000" green="185" label="68"/>
+                    <colorRampEntry red="160" blue="215" value="69.000000" green="186" label="69"/>
+                    <colorRampEntry red="161" blue="216" value="70.000000" green="187" label="70"/>
+                    <colorRampEntry red="162" blue="217" value="71.000000" green="187" label="71"/>
+                    <colorRampEntry red="162" blue="218" value="72.000000" green="188" label="72"/>
+                    <colorRampEntry red="164" blue="220" value="73.000000" green="190" label="73"/>
+                    <colorRampEntry red="181" blue="193" value="74.000000" green="187" label="74"/>
+                    <colorRampEntry red="182" blue="192" value="75.000000" green="187" label="75"/>
+                    <colorRampEntry red="181" blue="197" value="76.000000" green="188" label="76"/>
+                    <colorRampEntry red="177" blue="203" value="77.000000" green="189" label="77"/>
+                    <colorRampEntry red="180" blue="202" value="78.000000" green="190" label="78"/>
+                    <colorRampEntry red="189" blue="197" value="79.000000" green="193" label="79"/>
+                    <colorRampEntry red="188" blue="219" value="80.000000" green="202" label="80"/>
+                    <colorRampEntry red="196" blue="205" value="81.000000" green="200" label="81"/>
+                    <colorRampEntry red="197" blue="210" value="82.000000" green="203" label="82"/>
+                    <colorRampEntry red="200" blue="215" value="83.000000" green="207" label="83"/>
+                    <colorRampEntry red="204" blue="215" value="84.000000" green="209" label="84"/>
+                    <colorRampEntry red="202" blue="216" value="85.000000" green="208" label="85"/>
+                    <colorRampEntry red="214" blue="221" value="86.000000" green="217" label="86"/>
+                    <colorRampEntry red="197" blue="225" value="87.000000" green="210" label="87"/>
+                    <colorRampEntry red="203" blue="227" value="88.000000" green="214" label="88"/>
+                    <colorRampEntry red="206" blue="224" value="89.000000" green="214" label="89"/>
+                    <colorRampEntry red="210" blue="224" value="90.000000" green="217" label="90"/>
+                    <colorRampEntry red="210" blue="226" value="91.000000" green="217" label="91"/>
+                    <colorRampEntry red="225" blue="230" value="92.000000" green="227" label="92"/>
+                    <colorRampEntry red="226" blue="238" value="93.000000" green="232" label="93"/>
+                    <colorRampEntry red="232" blue="239" value="94.000000" green="235" label="94"/>
+                    <colorRampEntry red="231" blue="240" value="95.000000" green="235" label="95"/>
+                    <colorRampEntry red="239" blue="245" value="96.000000" green="241" label="96"/>
+                    <colorRampEntry red="249" blue="249" value="97.000000" green="249" label="97"/>
+                    <colorRampEntry red="248" blue="250" value="98.000000" green="249" label="98"/>
+                    <colorRampEntry red="253" blue="254" value="99.000000" green="253" label="99"/>
+                    <colorRampEntry red="255" blue="255" value="100.000000" green="255" label="100"/>
+                    <colorRampEntry red="255" blue="255" value="101.000000" green="255" label="101"/>
+                </customColorRamp>
+            </rasterproperties>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="1e+08" geometry="Point" type="vector" hasScaleBasedVisibilityFlag="0">
+            <id>nearschool20120512192842006</id>
+            <datasource>dbname='datakind' sslmode=disable key='ctid' table="nearschool" (the_geom) sql=</datasource>
+            <layername>nearschool</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=longlat +datum=WGS84 +no_defs</proj4>
+                    <srsid>3452</srsid>
+                    <srid>4326</srid>
+                    <authid>EPSG:4326</authid>
+                    <description>WGS 84</description>
+                    <projectionacronym>longlat</projectionacronym>
+                    <ellipsoidacronym>WGS84</ellipsoidacronym>
+                    <geographicflag>true</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <transparencyLevelInt>255</transparencyLevelInt>
+            <provider encoding="UTF-8">postgres</provider>
+            <vectorjoins/>
+            <renderer-v2 symbollevels="0" type="singleSymbol">
+                <symbols>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="0">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="37,240,15,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                </symbols>
+                <rotation field=""/>
+                <sizescale field=""/>
+            </renderer-v2>
+            <customproperties/>
+            <displayfield>latitude</displayfield>
+            <label>0</label>
+            <labelattributes>
+                <label fieldname="" text="Label"/>
+                <family fieldname="" name="Lucida Grande"/>
+                <size fieldname="" units="pt" value="12"/>
+                <bold fieldname="" on="0"/>
+                <italic fieldname="" on="0"/>
+                <underline fieldname="" on="0"/>
+                <strikeout fieldname="" on="0"/>
+                <color fieldname="" red="0" blue="0" green="0"/>
+                <x fieldname=""/>
+                <y fieldname=""/>
+                <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
+                <angle fieldname="" value="0" auto="0"/>
+                <alignment fieldname="" value="center"/>
+                <buffercolor fieldname="" red="255" blue="255" green="255"/>
+                <buffersize fieldname="" units="pt" value="1"/>
+                <bufferenabled fieldname="" on=""/>
+                <multilineenabled fieldname="" on=""/>
+                <selectedonly on=""/>
+            </labelattributes>
+            <edittypes>
+                <edittype type="0" name="latitude"/>
+                <edittype type="0" name="longitude"/>
+            </edittypes>
+            <editform></editform>
+            <editforminit></editforminit>
+            <annotationform></annotationform>
             <attributeactions/>
         </maplayer>
         <maplayer minimumScale="0" maximumScale="1e+08" geometry="Polygon" type="vector" hasScaleBasedVisibilityFlag="0">
@@ -415,20 +674,83 @@
             <annotationform>.</annotationform>
             <attributeactions/>
         </maplayer>
+        <maplayer minimumScale="0" maximumScale="1e+08" geometry="Polygon" type="vector" hasScaleBasedVisibilityFlag="0">
+            <id>school_grounds20120512192959813</id>
+            <datasource>dbname='datakind' sslmode=disable key='gid' table="school_grounds" (the_geom) sql=</datasource>
+            <layername>school_grounds</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=tmerc +lat_0=36.66666666666666 +lon_0=-88.33333333333333 +k=0.9999749999999999 +x_0=300000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=us-ft +no_defs</proj4>
+                    <srsid>100005</srsid>
+                    <srid>0</srid>
+                    <authid>USER:100005</authid>
+                    <description>NAD 1983 StatePlane Illinois East FIPS 1201 Feet ESRI:102671</description>
+                    <projectionacronym>tmerc</projectionacronym>
+                    <ellipsoidacronym>GRS80</ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <transparencyLevelInt>255</transparencyLevelInt>
+            <provider encoding="UTF-8">postgres</provider>
+            <vectorjoins/>
+            <renderer-v2 symbollevels="0" type="singleSymbol">
+                <symbols>
+                    <symbol outputUnit="MM" alpha="1" type="fill" name="0">
+                        <layer pass="0" class="SimpleFill" locked="0">
+                            <prop k="color" v="134,205,140,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="style" v="solid"/>
+                            <prop k="style_border" v="solid"/>
+                            <prop k="width_border" v="0.26"/>
+                        </layer>
+                    </symbol>
+                </symbols>
+                <rotation field=""/>
+                <sizescale field=""/>
+            </renderer-v2>
+            <customproperties/>
+            <displayfield></displayfield>
+            <label>0</label>
+            <labelattributes>
+                <label fieldname="" text="Label"/>
+                <family fieldname="" name="Lucida Grande"/>
+                <size fieldname="" units="pt" value="12"/>
+                <bold fieldname="" on="0"/>
+                <italic fieldname="" on="0"/>
+                <underline fieldname="" on="0"/>
+                <strikeout fieldname="" on="0"/>
+                <color fieldname="" red="0" blue="0" green="0"/>
+                <x fieldname=""/>
+                <y fieldname=""/>
+                <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
+                <angle fieldname="" value="0" auto="0"/>
+                <alignment fieldname="" value="center"/>
+                <buffercolor fieldname="" red="255" blue="255" green="255"/>
+                <buffersize fieldname="" units="pt" value="1"/>
+                <bufferenabled fieldname="" on=""/>
+                <multilineenabled fieldname="" on=""/>
+                <selectedonly on=""/>
+            </labelattributes>
+            <editform></editform>
+            <editforminit></editforminit>
+            <annotationform></annotationform>
+            <attributeactions/>
+        </maplayer>
         <maplayer minimumScale="0" maximumScale="1e+08" geometry="Point" type="vector" hasScaleBasedVisibilityFlag="0">
             <id>vacant_31120120512184051902</id>
             <datasource>dbname='datakind' sslmode=disable key='ctid' table="vacant_311" (the_geom) sql="neigh_number" = 110</datasource>
             <layername>vacant_311</layername>
             <srs>
                 <spatialrefsys>
-                    <proj4>+proj=longlat +datum=WGS84 +no_defs</proj4>
-                    <srsid>3452</srsid>
-                    <srid>4326</srid>
-                    <authid>EPSG:4326</authid>
-                    <description>WGS 84</description>
-                    <projectionacronym>longlat</projectionacronym>
-                    <ellipsoidacronym>WGS84</ellipsoidacronym>
-                    <geographicflag>true</geographicflag>
+                    <proj4>+proj=tmerc +lat_0=36.66666666666666 +lon_0=-88.33333333333333 +k=0.9999749999999999 +x_0=300000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=us-ft +no_defs</proj4>
+                    <srsid>100005</srsid>
+                    <srid>0</srid>
+                    <authid>USER:100005</authid>
+                    <description>NAD 1983 StatePlane Illinois East FIPS 1201 Feet ESRI:102671</description>
+                    <projectionacronym>tmerc</projectionacronym>
+                    <ellipsoidacronym>GRS80</ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
                 </spatialrefsys>
             </srs>
             <transparencyLevelInt>255</transparencyLevelInt>
@@ -511,8 +833,17 @@
         </maplayer>
     </projectlayers>
     <properties>
+        <WMSServiceAbstract type="QString"></WMSServiceAbstract>
+        <WMSContactPerson type="QString"></WMSContactPerson>
+        <Identify>
+            <disabledLayers type="QStringList"/>
+        </Identify>
+        <WMSContactPhone type="QString"></WMSContactPhone>
         <SpatialRefSys>
+            <ProjectCRSProj4String type="QString">+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs +towgs84=0,0,0</ProjectCRSProj4String>
             <ProjectCrs type="QString">EPSG:4326</ProjectCrs>
+            <ProjectCRSID type="int">3644</ProjectCRSID>
+            <ProjectionsEnabled type="int">1</ProjectionsEnabled>
         </SpatialRefSys>
         <Paths>
             <Absolute type="bool">false</Absolute>
@@ -526,9 +857,14 @@
             <SelectionColorGreenPart type="int">255</SelectionColorGreenPart>
             <CanvasColorBluePart type="int">255</CanvasColorBluePart>
         </Gui>
+        <WMSContactMail type="QString"></WMSContactMail>
         <PositionPrecision>
             <DecimalPlaces type="int">2</DecimalPlaces>
             <Automatic type="bool">true</Automatic>
         </PositionPrecision>
+        <WMSAddWktGeometry type="bool">false</WMSAddWktGeometry>
+        <WMSContactOrganization type="QString"></WMSContactOrganization>
+        <WMSServiceCapabilities type="bool">false</WMSServiceCapabilities>
+        <WMSServiceTitle type="QString"></WMSServiceTitle>
     </properties>
 </qgis>
